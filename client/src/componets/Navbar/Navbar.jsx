@@ -27,9 +27,9 @@ class Navbar extends Component {
     if (sessionStorage.getItem('adopted') === 'true') {
       return (
         <Fragment>
-          <li role="presentation">
+          {/* <li role="presentation">
             <Link to="/care">Care</Link>
-          </li>
+          </li> */}
           <li role="presentation">
             <Link to="/nearby"> Nearby</Link>
           </li>

@@ -12,10 +12,10 @@ const sexMapper = {
 };
 const sizeMapper = {
   Size: 'Size',
-  S: 'Small',
-  M: 'Medium',
-  L: 'Large',
-  XL: 'XLarge'
+  Small: 'Small',
+  Medium: 'Medium',
+  Large: 'Large',
+  XLarge: 'XLarge'
 };
 
 class AdoptFilter extends Component {
@@ -61,10 +61,10 @@ class AdoptFilter extends Component {
             <MenuItem eventKey="Senior">Senior</MenuItem>
           </DropdownButton>
           <DropdownButton title={sizeMapper[sizeTitle]} key="Size" id="dropdown-size" onSelect={this.changeSize}>
-            <MenuItem eventKey="S">Small</MenuItem>
-            <MenuItem eventKey="M">Medium</MenuItem>
-            <MenuItem eventKey="L">Large</MenuItem>
-            <MenuItem eventKey="XL">XLarge</MenuItem>
+            <MenuItem eventKey="Small">Small</MenuItem>
+            <MenuItem eventKey="Medium">Medium</MenuItem>
+            <MenuItem eventKey="Large">Large</MenuItem>
+            <MenuItem eventKey="XLarge">XLarge</MenuItem>
           </DropdownButton>
         </ButtonToolbar>
         <br />

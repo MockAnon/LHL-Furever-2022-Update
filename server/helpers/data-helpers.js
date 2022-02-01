@@ -343,7 +343,8 @@ module.exports = function makeDataHelpers(db) {
       // synchronized for loop to specify the document path and inserting
       for (let i = 0; i < breeds.length; i++) {
         // need to toString() the name
-        batch.set(breedsRef.doc(breeds[i].name.toString()), breeds[i]);
+        console.log("NAME ", breeds[i].name, breeds[i]);
+        batch.set(breedsRef.doc(breeds[i].name.toString().replace('/','')), breeds[i]);
       }
       // commits the batch and returns
       return batch
@@ -425,6 +426,7 @@ module.exports = function makeDataHelpers(db) {
     },
     // get information of the breed given
     getBreedInfo(ref) {
+      // console.log("BREED REF", ref);
       return ref
         .get()
         .then(result => result.data())
@@ -461,7 +463,9 @@ module.exports = function makeDataHelpers(db) {
       // synchronous for loop to grab the dog breeds
       for (let i = 0; i < dogBreeds.length; i++) {
         const ref = dogRef.doc(dogBreeds[i].toString());
+        // console.log("BREEDLOOPref", ref, dogBreeds[i]);
         const breedInfo = await this.getBreedInfo(ref);
+        // console.log("BREEDLOOP", breedInfo);
         outputObj.dog.push(breedInfo);
       }
       return Promise.resolve(outputObj);

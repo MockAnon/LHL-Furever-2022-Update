@@ -76,6 +76,8 @@ class Care extends Component {
     let catInfo = [];
     let dogInfo = [];
 
+    console.log(dogInfo);
+
     // goes through the list of Cat breed info HTML and constructs and array of Cat info
     for (let catBreed of this.state.breedInfo.cat) {
       let html = '';
@@ -90,6 +92,7 @@ class Care extends Component {
         </Fragment>
       );
     }
+      // console.log("OUTBREED ", jsonOutput.data.attributes.dog);
     // same thing as above
     for (let dogBreed of this.state.breedInfo.dog) {
       let html = '';

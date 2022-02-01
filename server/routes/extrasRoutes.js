@@ -36,9 +36,11 @@ module.exports = (dataHelpers) => {
       radius: req.query.radius,
       keyword: req.query.keyword
     };
+    //console.log(options);
     try {
       const result = await vetfinder('nearbysearch', options);
       const jsonOutput = VetsSerializer.serialize(result);
+      //console.log("OUT PLACES ", jsonOutput.data);
       res.json(jsonOutput);
     } catch (e) {
       console.log('Error', e);
@@ -56,9 +58,13 @@ module.exports = (dataHelpers) => {
     }
     // get the unique breeds out for cats and dogs
     const petBreeds = await getBreeds(pets);
+    // console.log("petBREEDS", petBreeds);
     const mappedBreeds = BreedMapper(petBreeds);
+    // console.log("BREEDMAPPER", mappedBreeds);
     const result = await dataHelpers.getAllBreedInfo(mappedBreeds);
+    // console.log("RESULT", result);
     const jsonOutput = BreedsSerializer.serialize(result);
+    // console.log("OUTBREED ", jsonOutput.data.attributes.dog);
     res.json(jsonOutput);
   });
 

@@ -37,6 +37,7 @@ class Store extends Component {
       .get(`http://localhost:8080/extras/places`, { params: outputObj })
       .then(function(response) {
         const results = response.data.data.attributes.results;
+        console.log("results OUT", results);
         component.props.isLoaded();
         component.setState({ results, isLoaded: true });
       })
